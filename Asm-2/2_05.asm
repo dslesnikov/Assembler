@@ -12,7 +12,7 @@ INCLUDELIB msvcrt.lib
 main:
 	mov eax, a
 	mov ebx, 2
-	and edx, 0
+	cdq
 	div ebx
 	cmp edx, 0
 	je is_even

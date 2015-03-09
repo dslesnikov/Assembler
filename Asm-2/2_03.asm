@@ -19,7 +19,8 @@ main:
 	mov ebx, eax
 	mov eax, cc
 	mov ecx, d
-	div ecx
+	cdq
+	idiv ecx
 	sub ebx, edx
 	call exit
 end main

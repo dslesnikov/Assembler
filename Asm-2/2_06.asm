@@ -17,7 +17,7 @@ main:
 	jmp gcd_search
 	
 gcd_search:
-	and edx, 0
+	cdq
 	div ebx
 	cmp edx, 0
 	je found_gcd
