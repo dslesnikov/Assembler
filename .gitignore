@@ -1,0 +1,6 @@
+#Ignore everything
+*
+!.gitignore
+!*.asm
+!*/
+#Except for code
