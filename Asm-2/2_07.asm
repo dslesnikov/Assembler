@@ -3,7 +3,7 @@
 .MODEL Flat, StdCall
 
 .DATA
-	n DD 17
+	n DD 3
 	fib_res DD ?
 
 INCLUDE stdlib.inc
@@ -14,6 +14,13 @@ main:
 	mov eax, 1
 	mov ebx, 1
 	mov ecx, n
+	cmp ecx, 1
+	ja fib_calc_0
+	mov fib_res, 1
+	call exit
+
+fib_calc_0:
+	dec ecx
 	jmp fib_calc
 
 fib_calc:

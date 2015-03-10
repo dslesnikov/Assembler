@@ -15,7 +15,7 @@ INCLUDELIB msvcrt.lib
 main:
 	mov eax, a
 	mov ebx, b
-	mul ebx
+	imul ebx
 	mov ebx, eax
 	mov eax, cc
 	mov ecx, d
