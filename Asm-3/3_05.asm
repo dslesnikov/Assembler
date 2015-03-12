@@ -4,7 +4,7 @@
 
 .DATA
 	len equ 5
-	arr dw 3, 57, -73, 2, -1
+	arr db 3, 57, -73, 2, -1
 	res_arr db len dup (0)
 	
 
@@ -19,6 +19,7 @@ main:
 	mov edx, 0
 
 copy_to_stack:
+	mov ax, 0
 	mov ax, [esi + type arr * edx]
 	push ax
 	inc edx
@@ -27,10 +28,13 @@ copy_to_stack:
 	mov ecx, len
 	mov edx, 0
 pop_from_stack:
+	mov ax, 0
 	pop ax
 	mov [edi + type arr * edx], ax
 	inc edx
 	loop pop_from_stack
+	mov ax, 0
+	mov [edi + type arr * edx], ax
 	call exit
 
 end main
