@@ -6,7 +6,8 @@
 	len equ 5
 	arr dd 37, 57, 7333, 2123, 100
 	res dd 0FFFFFFFFH
-	thr dd 8000
+	thr1 dd 8000
+	thr2 dd 60
 	ind dd ?
 
 INCLUDE stdlib.inc
@@ -15,7 +16,7 @@ INCLUDELIB msvcrt.lib
 .CODE
 main:
 	mov esi, offset arr
-	mov ebx, thr
+	mov ebx, thr1
 	mov ecx, len
 	mov edx, 0
 
