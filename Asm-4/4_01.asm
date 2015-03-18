@@ -55,7 +55,7 @@ prod_calc:
 	push ebx
 	loop prod_calc
 	
-	mov product, eax
+	mov product, ebx
 	call exit
 
 end main
