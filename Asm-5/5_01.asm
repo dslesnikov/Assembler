@@ -6,7 +6,6 @@
 	len equ 4
 	arr dd 28, -70, 154, 98
 	test_arr dd 8, 16, 32, 4, 1024, 512, 4
-	two dd 2
 
 INCLUDE stdlib.inc
 INCLUDELIB msvcrt.lib
