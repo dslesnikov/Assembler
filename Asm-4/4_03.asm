@@ -3,10 +3,9 @@
 .MODEL Flat, StdCall
 
 .DATA
-	num dd -67863
+	num dd -67864
 	len dd ?
 	ten dd 10
-	two dd 2
 	result db 100 dup (0)
 	rems db 100 dup (0)
 
@@ -19,13 +18,8 @@ main:
 	mov edi, offset rems
 	mov eax, num
 	mov ebx, 0
-	
-	;To check the sign of number and negate it if needed
-	cdq
-	idiv two
-	mov eax, num
-	cmp edx, 2
-	jb digits_calc
+	test eax, eax
+	jns digits_calc
 	neg eax
 
 digits_calc:

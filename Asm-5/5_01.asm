@@ -3,8 +3,8 @@
 .MODEL Flat, StdCall
 
 .DATA
-	len equ 7
-	arr dd 28, -9, 15, -8, -1, 1000, 0DEADBEAFH
+	len equ 4
+	arr dd 28, -70, 154, 98
 	test_arr dd 8, 16, 32, 4, 1024, 512, 4
 	two dd 2
 
@@ -13,7 +13,7 @@ INCLUDELIB msvcrt.lib
 
 .CODE
 main:
-	mov esi, offset test_arr
+	mov esi, offset arr
 	mov ecx, len
 	dec ecx
 	mov edx, 0
@@ -34,20 +34,11 @@ common_gcd:
 ;ebx - входное число
 ;Результат лежит в ebx
 absolute_please:
-	push edx
-	push eax
-
-	mov eax, ebx
-	cdq
-	idiv two
-	cmp edx, 2
-	jb absoluted
+	test ebx, ebx
+	jns absoluted
 	neg ebx
 absoluted:
-	pop eax
-	pop edx
 	ret
-
 
 
 ;Ищет наибольший общий делитель двух чисел
@@ -55,7 +46,6 @@ absoluted:
 ;ebx - второе число
 ;Результат лежит в ebx
 find_gcd:
-	; Чтобы не засорять счетчик массива
 	push edx
 finding_loop:
 	cdq
