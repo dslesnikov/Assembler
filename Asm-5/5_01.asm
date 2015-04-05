@@ -12,7 +12,7 @@ INCLUDELIB msvcrt.lib
 
 .CODE
 main:
-	mov esi, offset arr
+	mov esi, offset test_arr
 	mov ecx, len
 	dec ecx
 	mov edx, 0
